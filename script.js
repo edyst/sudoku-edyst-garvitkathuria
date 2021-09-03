@@ -1,463 +1,306 @@
-const easy = [
-    "6------7------5-2------1---362----81--96-----71--9-4-5-2---651---78----345-------",
-    "685329174971485326234761859362574981549618732718293465823946517197852643456137298"
-  ];
-  const medium = [
-    "--9-------4----6-758-31----15--4-36-------4-8----9-------75----3-------1--2--3---",
-    "619472583243985617587316924158247369926531478734698152891754236365829741472163895"
-  ];
-  const hard = [
-    "-1-5-------97-42----5----7-5---3---7-6--2-41---8--5---1-4------2-3-----9-7----8--",
-    "712583694639714258845269173521436987367928415498175326184697532253841769976352841"
-  ];
-var selectedCell;
-var difficulty = easy[0];
-var answer = [""];
-let diffNum = 1;
-window.onload = function () {
-    startGame(); 
+const inputsAll=document.querySelectorAll('input');
+
+
+function easy(){
+    document.getElementById('easy-btn').disabled=true;
+    inputsAll.forEach(input => {
+        input.value='';
+        input.disabled=false;
+    });
+    easySetup();
+
+    document.getElementById('medium-btn').disabled=false;
+    document.getElementById('hard-btn').disabled=false;
 }
-function changeDifficulty(n) {
-    switch(n)
-    {
-        case 1 :  window.difficulty = easy[0];
-        break;
-        case 2 :  window.difficulty = medium[0];
-        break;
-        case 3 :  window.difficulty = hard[0];
-        break;
-        default: window.difficulty = easy[0];
-    }
-    diffNum = n;
-    startGame();
+function easySetup(){
+    document.getElementById('c00').value=9;
+    document.getElementById('c00').disabled=true;
+    document.getElementById('c06').value=8;
+    document.getElementById('c06').disabled=true;
+    document.getElementById('c16').value=9;
+    document.getElementById('c16').disabled=true;
+    document.getElementById('c17').value=4;
+    document.getElementById('c17').disabled=true;
+    document.getElementById('c25').value=9;
+    document.getElementById('c25').disabled=true;
+    document.getElementById('c26').value=3;
+    document.getElementById('c26').disabled=true;
+    document.getElementById('c27').value=6;
+    document.getElementById('c27').disabled=true;
+    document.getElementById('c28').value=7;
+    document.getElementById('c28').disabled=true;
+    document.getElementById('c30').value=7;
+    document.getElementById('c30').disabled=true;
+    document.getElementById('c31').value=1;
+    document.getElementById('c31').disabled=true;
+    document.getElementById('c32').value=2;
+    document.getElementById('c32').disabled=true;
+    document.getElementById('c34').value=9;
+    document.getElementById('c34').disabled=true;
+    document.getElementById('c36').value=4;
+    document.getElementById('c36').disabled=true;
+    document.getElementById('c37').value=3;
+    document.getElementById('c37').disabled=true;
+    document.getElementById('c38').value=6;
+    document.getElementById('c38').disabled=true;
+    document.getElementById('c43').value=2;
+    document.getElementById('c43').disabled=true;
+    document.getElementById('c45').value=7;
+    document.getElementById('c45').disabled=true;
+    document.getElementById('c47').value=1;
+    document.getElementById('c47').disabled=true;
+    document.getElementById('c50').value=6;
+    document.getElementById('c50').disabled=true;
+    document.getElementById('c51').value=5;
+    document.getElementById('c51').disabled=true;
+    document.getElementById('c52').value=9;
+    document.getElementById('c52').disabled=true;
+    document.getElementById('c53').value=3;
+    document.getElementById('c53').disabled=true;
+    document.getElementById('c54').value=4;
+    document.getElementById('c54').disabled=true;
+    document.getElementById('c55').value=1;
+    document.getElementById('c55').disabled=true;
+    document.getElementById('c56').value=2;
+    document.getElementById('c56').disabled=true;
+    document.getElementById('c58').value=8;
+    document.getElementById('c58').disabled=true;
+    document.getElementById('c60').value=2;
+    document.getElementById('c60').disabled=true;
+    document.getElementById('c61').value=6;
+    document.getElementById('c61').disabled=true;
+    document.getElementById('c62').value=5;
+    document.getElementById('c62').disabled=true;
+    document.getElementById('c63').value=1;
+    document.getElementById('c63').disabled=true;
+    document.getElementById('c65').value=4;
+    document.getElementById('c65').disabled=true;
+    document.getElementById('c66').value=7;
+    document.getElementById('c66').disabled=true;
+    document.getElementById('c67').value=9;
+    document.getElementById('c67').disabled=true;
+    document.getElementById('c68').value=3;
+    document.getElementById('c68').disabled=true;
+    document.getElementById('c83').value=9;
+    document.getElementById('c83').disabled=true;
+
 }
-function updateMove() {
-    if(selectedCell)
-    {
-        document.addEventListener('keydown', (event) => {
-            var name = event.key;
-            if(name>0 && name<10 && cani(name))
-            {
-            selectedCell.textContent = name;
-            addToArray(name);
-            addToCache();          
-            } else if(name==0){
-                selectedCell.textContent = null;
-                removeFromArray();
+
+
+function medium(){
+    document.getElementById('medium-btn').disabled=true;
+
+    inputsAll.forEach(input => {
+        input.value='';
+        input.disabled=false;
+    });
+    mediumSetup();
+
+    document.getElementById('easy-btn').disabled=false;
+    document.getElementById('hard-btn').disabled=false;
+}
+function mediumSetup(){
+    document.getElementById('c03').value=3;
+    document.getElementById('c03').disabled=true;
+    document.getElementById('c04').value=4;
+    document.getElementById('c04').disabled=true;
+    document.getElementById('c07').value=9;
+    document.getElementById('c07').disabled=true;
+    document.getElementById('c12').value=5;
+    document.getElementById('c12').disabled=true;
+    document.getElementById('c17').value=4;
+    document.getElementById('c17').disabled=true;
+    document.getElementById('c18').value=6;
+    document.getElementById('c18').disabled=true;
+    document.getElementById('c20').value=8;
+    document.getElementById('c20').disabled=true;
+    document.getElementById('c22').value=4;
+    document.getElementById('c22').disabled=true;
+    document.getElementById('c23').value=5;
+    document.getElementById('c23').disabled=true;
+    document.getElementById('c25').value=9;
+    document.getElementById('c25').disabled=true;
+    document.getElementById('c31').value=5;
+    document.getElementById('c31').disabled=true;
+    document.getElementById('c33').value=4;
+    document.getElementById('c33').disabled=true;
+    document.getElementById('c36').value=6;
+    document.getElementById('c36').disabled=true;
+    document.getElementById('c41').value=4;
+    document.getElementById('c41').disabled=true;
+    document.getElementById('c47').value=5;
+    document.getElementById('c47').disabled=true;
+    document.getElementById('c55').value=5;
+    document.getElementById('c55').disabled=true;
+    document.getElementById('c56').value=4;
+    document.getElementById('c56').disabled=true;
+    document.getElementById('c60').value=4;
+    document.getElementById('c60').disabled=true;
+    document.getElementById('c61').value=2;
+    document.getElementById('c61').disabled=true;
+    document.getElementById('c64').value=5;
+    document.getElementById('c64').disabled=true;
+    document.getElementById('c66').value=9;
+    document.getElementById('c66').disabled=true;
+    document.getElementById('c70').value=5;
+    document.getElementById('c70').disabled=true;
+    document.getElementById('c78').value=4;
+    document.getElementById('c78').disabled=true;
+    document.getElementById('c81').value=1;
+    document.getElementById('c81').disabled=true;
+    document.getElementById('c84').value=3;
+    document.getElementById('c84').disabled=true;
+    document.getElementById('c85').value=4;
+    document.getElementById('c85').disabled=true;
+}
+
+
+function hard(){
+    document.getElementById('hard-btn').disabled=true;
+
+    inputsAll.forEach(input => {
+        input.value='';
+        input.disabled=false;
+    });
+    hardSetup();
+
+    document.getElementById('easy-btn').disabled=false;
+    document.getElementById('medium-btn').disabled=false;
+}
+function hardSetup(){
+    document.getElementById('c02').value=4;
+    document.getElementById('c02').disabled=true;
+    document.getElementById('c05').value=7;
+    document.getElementById('c05').disabled=true;
+    document.getElementById('c10').value=2;
+    document.getElementById('c10').disabled=true;
+    document.getElementById('c15').value=5;
+    document.getElementById('c15').disabled=true;
+    document.getElementById('c22').value=8;
+    document.getElementById('c22').disabled=true;
+    document.getElementById('c25').value=2;
+    document.getElementById('c25').disabled=true;
+    document.getElementById('c33').value=2;
+    document.getElementById('c33').disabled=true;
+    document.getElementById('c34').value=7;
+    document.getElementById('c34').disabled=true;
+    document.getElementById('c47').value=6;
+    document.getElementById('c47').disabled=true;
+    document.getElementById('c48').value=2;
+    document.getElementById('c48').disabled=true;
+    document.getElementById('c51').value=2;
+    document.getElementById('c51').disabled=true;
+    document.getElementById('c52').value=9;
+    document.getElementById('c52').disabled=true;
+    document.getElementById('c54').value=8;
+    document.getElementById('c54').disabled=true;
+    document.getElementById('c68').value=7;
+    document.getElementById('c68').disabled=true;
+    document.getElementById('c74').value=2;
+    document.getElementById('c74').disabled=true;
+    document.getElementById('c85').value=3;
+    document.getElementById('c85').disabled=true;
+    document.getElementById('c86').value=6;
+    document.getElementById('c86').disabled=true;
+}
+
+//validate call
+inputsAll.forEach(input => input.oninput=validate ); //attching oninput to all inputs
+function validate(e){
+    const classes=e.target.classList;
+    const value=e.target.value;
+    const rowElements=document.querySelectorAll('.'+CSS.escape(classes[0]));
+    const colElements=document.querySelectorAll('.'+CSS.escape(classes[1]));
+    const boxElements=document.querySelectorAll('.'+CSS.escape(classes[2]));
+    if(value>0 && value<10){
+        rowElements.forEach(ele => {
+            if(ele.value==value && ele!=e.target){
+                e.target.value='';
+                alert(`Value already present in ${classes[0]}`);
             }
-          }, false);       
-    }
-    highSelect();
-}
-function startGame() {
-    let board;    
-    board = difficulty;    
-    fillAns(difficulty);    
-    createBoard(board);
-    if(sessionStorage.getItem("cache")){
-        var saved  = sessionStorage.getItem("cache");
-        var diff = sessionStorage.getItem("diff");
-        if(diff != diffNum){
-        if(diff==1) {
-            changeDifficulty(1);
-        } else if(diff==2) {
-            changeDifficulty(2);
-        } else if(diff==3) {
-            changeDifficulty(3);
-        }
-            } else {
-            saved = saved.split(",");
-            answer = saved;
-            for(i=0;i<81;i++){
-            if(saved[i]!="-" && saved[i]!=difficulty[i]){
-            qA(".cell")[i].classList.add("modified"); 
-            id(i).textContent = saved[i];
+        });
+        colElements.forEach(ele => {
+            if(ele.value==value && ele!=e.target){
+                e.target.value='';
+                alert(`Value already present in ${classes[1]}`);
             }
-        }
+        });
+        boxElements.forEach(ele => {
+            if(ele.value==value && ele!=e.target){
+                e.target.value='';
+                alert(`Value already present in ${classes[2]}`);
             }
-        
+        });
+    }
+    else if(value==''){}
+    else{
+        e.target.value='';
+        alert("Enter a Number between 1 and 9 only!");
     }
 }
-function highSelect() {
-    for(let i=0;i<81;i++) {
-    qA(".cell")[i].classList.remove("highlighted");
-    qA(".cell")[i].classList.remove("dup");
-    }
-    let col = parseInt(selectedCell.id % 9);
-    let row = parseInt(selectedCell.id / 9);
-    let s = selectedCell.id;
-    for(let i=0;i<81;i++){
-        if(parseInt(selectedCell.textContent)==answer[i])
-        id(i).classList.add("dup");
-    }
-    for(let i=col;i<col+73;i+=9)
-    {
-        if(i!=s) {
-            id(i).classList.add("highlighted");
-        }       
-    } 
-    for(let i=row*9;i<row*9+9;i++)
-    {
-        if(i!=s) {
-            id(i).classList.add("highlighted");
+
+function validateAll(){ alert(`Game State is valid :)`); }
+
+//highlighting call
+inputsAll.forEach(input => input.onfocus=highlight ); // attaching onfocus event to all inputs
+function highlight(e){
+    const classes=e.target.classList;
+    const rowElements=document.querySelectorAll('.'+CSS.escape(classes[0]));
+    const colElements=document.querySelectorAll('.'+CSS.escape(classes[1]));
+    const boxElements=document.querySelectorAll('.'+CSS.escape(classes[2]));
+    rowElements.forEach(ele => {
+        if(ele.disabled==false){ 
+            ele.style.backgroundColor='#a2c523';
+            ele.style.color='#fff';
         }
-    }
-    let x = 0;
-    let y = 3;
-    if( (-1<s && s<3) || (8<s && s<12) || (17<s && s<21) ) {    
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }
+    });
+    colElements.forEach(ele => {
+        if(ele.disabled==false){ 
+            ele.style.backgroundColor='#a2c523';
+            ele.style.color='#fff';
         }
-    x = 3;
-    y = 6;
-    if( (2<s && s<6) || (11<s && s<15) || (20<s && s<24) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }
-    }
-    x = 6;
-    y = 9;
-    if( (5<s && s<9) || (14<s && s<18) || (23<s && s<27) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }       
-    }
-    x=27;
-    y=30;
-    if( (26<s && s<30) || (35<s && s<39) || (44<s && s<48) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }    
-    }
-    x = 30;
-    y = 33;
-    if( (29<s && s<33) || (38<s && s<42) || (47<s && s<51) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }    
-    }
-    x = 33;
-    y = 36;
-    if( (32<s && s<36) || (41<s && s<45) || (50<s && s<54) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }    
-    }
-    x = 54;
-    y = 57;
-    if( (53<s && s<57) || (62<s && s<66) || (71<s && s<75) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }    
-    }
-    x = 57;
-    y = 60;
-    if( (56<s && s<60) || (65<s && s<69) || (74<s && s<78) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }    
-    }
-    x = 60;
-    y = 63;
-    if( (59<s && s<63) || (68<s && s<72) || (77<s && s<81) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(j!=s) {
-                    id(j).classList.add("highlighted");
-                }
-                }
-            }   
-    }
-}
-function createBoard(board) {
-    clearPrevious();
-    let idCell = 0;
-    for(let i=0;i<81;i++){
-        let cell  = document.createElement("p");
-        if(board.charAt(i)!="-") {
-            cell.textContent = board.charAt(i);
-            cell.classList.add("prefilled");
-        }   else {
-            cell.addEventListener("click", function(){
-                if(cell.classList.contains("selected")) {
-                    cell.classList.remove("selected");
-                    selectedCell = null;
-                } else {
-                    for(let i=0;i<81;i++) {
-                        qA(".cell")[i].classList.remove("selected");
-                    }                  
-                }
-                cell.classList.add("selected");
-                selectedCell = cell;
-                updateMove();
-            }); 
+    });
+    boxElements.forEach(ele => {
+        if(ele.disabled==false) {
+            ele.style.backgroundColor='#486b00';
+            ele.style.color='#fff';
         }
-        cell.id = idCell;
-        idCell++;
-        cell.classList.add("cell");
-        if((cell.id > 17 && cell.id < 27) || (cell.id > 44 && cell.id < 54 )) {
-            cell.classList.add("bottomBorder");
+    });
+    if(e.target.disabled==false){
+        e.target.style.backgroundColor='#2e4600';
+        e.target.style.color='#fff';
+    }
+}
+
+//Anti-Highlighting Call
+inputsAll.forEach( input => input.onblur=antihighlight ); //attaching onblur to all inputs
+function antihighlight(e){
+    const classes=e.target.classList;
+    const rowElements=document.querySelectorAll('.'+CSS.escape(classes[0]));
+    const colElements=document.querySelectorAll('.'+CSS.escape(classes[1]));
+    const boxElements=document.querySelectorAll('.'+CSS.escape(classes[2]));
+    rowElements.forEach(ele => {
+        if(ele.disabled==false) {
+            ele.style.backgroundColor='initial';
+            ele.style.color='initial';
         }
-        if( ((cell.id + 1) % 9 == 3) || ((cell.id + 1) % 9 == 6) ) {
-            cell.classList.add("rightBorder");
+    });
+    colElements.forEach(ele => {
+        if(ele.disabled==false) {
+            ele.style.backgroundColor='initial';
+            ele.style.color='initial';
         }
-        if((cell.id + 1) % 9 == 0 || (cell.id + 1) % 9 == 0) {
-              cell.classList.add("rightBorder");
-         }
-        if((cell.id + 2) % 9 == 2 || (cell.id + 2) % 9 == 2) {
-            cell.classList.add("leftBorder");
-       }
-        if((cell.id > 71 && cell.id < 81)) {
-            cell.classList.add("bottomBorder");
+    });
+    boxElements.forEach(ele => {
+        if(ele.disabled==false) {
+            ele.style.backgroundColor='initial';
+            ele.style.color='initial';
         }
-        if((cell.id > -1 && cell.id < 9)) {
-            cell.classList.add("topBorder");
-        }
-        id("board").appendChild(cell);
+    });
+    if(e.target.disabled==false) {
+        e.target.style.backgroundColor='initial';
+        e.target.style.color='initial';
     }
 }
-function clearPrevious() {
-    let cells = qA(".cell")
-    for(let i=0;i<cells.length;i++)
-    {
-        cells[i].remove();
-    }
-}
-function reset(){
-    let diff = sessionStorage.getItem("diff");
-    sessionStorage.clear();
-    changeDifficulty(diff);
-}
-function fillAns(str) {
-    for(let i=0;i<str.length;i++) {
-        answer[i] = str[i];
-    }  
-}
-function addToCache() {
-    sessionStorage.setItem("cache",answer);
-    sessionStorage.setItem("diff",diffNum);
-}
-function addToArray(num) {
-    let index = q(".selected").id;
-    answer.splice(index,1,num);
-    q(".selected").classList.add("modified");
-    duplicate(num);
-}
-function removeFromArray() {
-    let index = q(".selected").id;
-    answer.splice(index,1,"-");
-    q(".selected").classList.remove("modified");
-}
-function duplicate(num) {
-    for(let i=0;i<81;i++){
-        if(num==answer[i])
-        id(i).classList.add("dup");
-    }
-}
-function validate() {
-    let status= 1;
-   for(let i=0;i<answer.length;i++)
-   {
-       let sum=0;
-    
-   for(let i=0;i<9;i++){
-       if(answer!="-")
-    sum+=parseInt(answer[i]);
-       for(let j=i+9;j<81;j+=9){
-        if(answer!="-")
-           sum+=parseInt(answer[j]);
-       }
-   }
-   if(sum!=405){
-    status = 0;
-   }  
-    }
-    if(status==1){
-        endGame();
-        return;
-       } else {
-        alert("Something is not right, Try again.");
-       }   
-}
-function endGame() {
-    sessionStorage.clear();
-    for(let i=0;i<81;i++){
-        id(i).classList.add("prefilled");      
-    }
-    alert("You Win!, GGWP!");
-}
-function cani(num) {
-    let pass = 1;
-    let col = parseInt(selectedCell.id % 9);
-    let row = parseInt(selectedCell.id / 9);
-    let s = selectedCell.id;
-    for(let i=col;i<col+73;i+=9)
-    {
-        if(num==answer[i]){
-            pass = 0;
-            break;
-        }
-    }
-    for(let i=row*9;i<row*9+9;i++)
-    {
-        if(num==answer[i]){
-            pass = 0;
-            break;
-        }
-    }
-    let x = 0;
-    let y = 3;
-    if( (-1<s && s<3) || (8<s && s<12) || (17<s && s<21) ) {    
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }
-        }
-    x = 3;
-    y = 6;
-    if( (2<s && s<6) || (11<s && s<15) || (20<s && s<24) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }
-    }
-    x = 6;
-    y = 9;
-    if( (5<s && s<9) || (14<s && s<18) || (23<s && s<27) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }       
-    }
-    x=27;
-    y=30;
-    if( (26<s && s<30) || (35<s && s<39) || (44<s && s<48) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }    
-    }
-    x = 30;
-    y = 33;
-    if( (29<s && s<33) || (38<s && s<42) || (47<s && s<51) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }    
-    }
-    x = 33;
-    y = 36;
-    if( (32<s && s<36) || (41<s && s<45) || (50<s && s<54) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }    
-    }
-    x = 54;
-    y = 57;
-    if( (53<s && s<57) || (62<s && s<66) || (71<s && s<75) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }    
-    }
-    x = 57;
-    y = 60;
-    if( (56<s && s<60) || (65<s && s<69) || (74<s && s<78) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }    
-    }
-    x = 60;
-    y = 63;
-    if( (59<s && s<63) || (68<s && s<72) || (77<s && s<81) ) {
-        for(let i=x;i<y;i++){
-            for(let j=i;j<i+19;j+=9){
-                if(num==answer[j]){
-                    pass = 0;
-                    break;
-                }
-                }
-            }   
-    }
-    return pass;
-}
-function id(id) {
-    return document.getElementById(id);
-}
-function q(selector) {
-    return document.querySelector(selector);
-}
-function qA(selector) {
-    return document.querySelectorAll(selector);
-}
-function printSession() {
-    console.log(sessionStorage.getItem("cache"));
-    console.log(sessionStorage.getItem("diff"));  
-}
+
+window.onload=easy();
